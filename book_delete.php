@@ -2,9 +2,9 @@
 include_once('database.php');
 $bookID = $_GET["bookID"]; // assigns the gameID from the URL
 if($bookID != false) {
-    $query = "DELETE FROM games WHERE Id = :game_id ";
+    $query = "DELETE FROM books WHERE Id = :book_id ";
     $statement = $db->prepare($query);
-    $statement->bindValue(":game_id", $gameID);
+    $statement->bindValue(":book_id", $bookID);
     $success = $statement->execute(); // execute the prepared query
     $statement->closeCursor(); // close off database
 }
