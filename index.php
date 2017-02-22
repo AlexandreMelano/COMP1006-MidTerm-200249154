@@ -31,7 +31,7 @@ $statement->closeCursor(); // close the connection
             <!-- /////////////////////////// -->
 
             <a class="btn btn-primary" href="">
-                <a class="btn btn-primary" href="book_details.php?bookID=0<?php echo $book['ID'] ?>"><i class="fa fa-plus"></i> Add New Book</a>
+                <a class="btn btn-primary" href="book_details.php?bookID=0"><i class="fa fa-plus"></i> Add New Book</a>
             <br>
             <table class="table table-striped table-hover table-bordered">
                 <tr>
@@ -53,7 +53,7 @@ $statement->closeCursor(); // close the connection
                             <!-- MODIFY SECTION BELOW -->
                             <!-- //////////////////// -->
 
-                            <td><a class="btn btn-primary" href="book_details.php?gameID=<?php echo $books['Title'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
+                            <td><a class="btn btn-primary" href="book_details.php?bookID=<?php echo $book['Id'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
 
                             <td><a class="btn btn-danger" href="book_delete.php"><i class="fa fa-trash-o"></i> Delete</a></td>
                         </tr>
