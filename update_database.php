@@ -13,9 +13,6 @@ if($isAddition == "1") {
 }else
 {
     $bookID = filter_input(INPUT_POST, "IDTextField"); // $_POST["IDTextField"];
-/*//////////////////////*/
-/* FIX THIS MYSQL QUERY */
-/*//////////////////////*/
 
 /*/$query = "";
 $statement = $db->prepare($query); // encapsulate the sql statement/*/
