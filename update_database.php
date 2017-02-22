@@ -9,12 +9,12 @@ $bookGenre = filter_input(INPUT_POST, "GenreTextField");
 
 // check if user is Adding a New Book
 if($isAddition == "1") {
-    echo "1";
+
     $query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
 
 }else
 {
-    echo "0";
+
     $bookID = filter_input(INPUT_POST, "IDTextField"); // $_POST["IDTextField"];
 
 /*/$query = "";
