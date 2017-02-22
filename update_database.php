@@ -9,13 +9,18 @@ $bookGenre = filter_input(INPUT_POST, "GenreTextField");
 
 // check if user is Adding a New Book
 if($isAddition == "1") {
+    /*
+     * This is the query that wont work
+     */
 
     //$query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
     $query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
-   // $query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
+    $statement = $db->prepare($query);
 }else
 {
-
+/*
+ *  Underneath is my update field, which works.
+ */
     $bookID = filter_input(INPUT_POST, "IDTextField"); // $_POST["IDTextField"];
 
 /*/$query = "";
