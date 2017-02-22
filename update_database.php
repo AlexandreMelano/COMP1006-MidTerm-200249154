@@ -9,14 +9,14 @@ $bookGenre = filter_input(INPUT_POST, "GenreTextField");
 
 // check if user is Adding a New Book
 if($isAddition == "1") {
-    $query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_Title, :book_Author, :book_Price, :book_Genre)";
+    $query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
 }else
 {
     $bookID = filter_input(INPUT_POST, "IDTextField"); // $_POST["IDTextField"];
 
 /*/$query = "";
 $statement = $db->prepare($query); // encapsulate the sql statement/*/
-    $query = "UPDATE books SET Title = :book_Title, Author = :book_Author, Price = :book_Price, Genre = :book_Genre WHERE Id = :book_id "; // SQL statement
+    $query = "UPDATE books SET Title = :book_title, Author = :book_author, Price = :book_price, Genre = :book_genre WHERE Id = :book_id "; // SQL statement
     $statement = $db->prepare($query); // encapsulate the sql statement
     $statement->bindValue(':book_id', $bookID);
 
