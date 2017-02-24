@@ -5,16 +5,16 @@ include_once('database.php'); // include the database connection file
 /* YOUR CODE GOES HERE */
 /*/////////////////////*///
 
-$bookID = $_GET["bookID"]; // assigns the gameID from the URL
-echo $bookID;
-if($bookID == 0) {
-    $book = null;
+$todolistID = $_GET["todolistID"]; // assigns the gameID from the URL
+echo $todolistID;
+if($todolistID == 0) {
+    $todolist = null;
     $isAddition = 1;
 } else {
     $isAddition = 0;
-    $query = "SELECT * FROM books WHERE Id = :book_id "; // SQL statement
+    $query = "SELECT * FROM todolists WHERE Id = :todolist_id "; // SQL statement
     $statement = $db->prepare($query); // encapsulate the sql statement
-    $statement->bindValue(':book_id', $bookID);
+    $statement->bindValue(':todolist_id', $todolistID);
     $statement->execute(); // run on the db server
     $book = $statement->fetch(); // returns only one record
     $statement->closeCursor(); // close the connection
@@ -42,27 +42,27 @@ if($bookID == 0) {
                 <div class="form-group">
                     <label for="IDTextField" hidden>ID</label>
                     <input type="hidden" class="form-control" id="IDTextField" name="IDTextField"
-                           placeholder="Game ID" value="<?php echo $book['Id']; ?>">
+                           placeholder="Game ID" value="<?php echo $todolist['ID']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="TitleTextField">Title</label>
+                    <label for="TitleTextField">Todo</label>
                     <input type="text" class="form-control" id="TitleTextField"  name="TitleTextField"
-                           placeholder="Title" required  value="<?php echo $book['Title']; ?>">
+                           placeholder="Title" required  value="<?php echo $todolist['TODO']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="AuthorTextField">Author</label>
+                    <label for="AuthorTextField">Notes</label>
                     <input type="text" class="form-control" id="AuthorTextField" name="AuthorTextField"
-                           placeholder="Author" required  value="<?php echo $book['Author']; ?>">
+                           placeholder="Author" required  value="<?php echo $todolist['Notes']; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="PriceTextField">Price</label>
+                    <label for="PriceTextField">ID</label>
                     <input type="text" class="form-control" id="PriceTextField" name="PriceTextField"
-                           placeholder="Price" required  value="<?php echo $book['Price']; ?>">
-                </div>
+                           placeholder="Price" required  value="<?php echo $todolist['Price']; ?>">
+                <!--</div>
                 <div class="form-group">
                     <label for="GenreTextField">Genre</label>
                     <input type="text" class="form-control" id="GenreTextField" name="GenreTextField"
-                           placeholder="Genre" required  value="<?php echo $book['Genre']; ?>">
+                           placeholder="Genre" required  value="<?php echo $todolist['Genre']; ?>">-->
                 </div>
                     <input type="hidden" name="isAddition" value="<?php echo $isAddition; ?>">
                 <button type="submit" id="SubmitButton" class="btn btn-primary">Submit</button>

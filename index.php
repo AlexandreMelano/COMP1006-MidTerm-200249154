@@ -1,10 +1,10 @@
 <?php
 include_once('database.php');
 
-$query = "SELECT * FROM books"; // SQL statement
+$query = "SELECT * FROM todolists"; // SQL statement
 $statement = $db->prepare($query); // encapsulate the sql statement
 $statement->execute(); // run on the db server
-$books = $statement->fetchAll(); // returns an array
+$todolists = $statement->fetchAll(); // returns an array
 $statement->closeCursor(); // close the connection
 ?>
 
@@ -31,31 +31,34 @@ $statement->closeCursor(); // close the connection
             <!-- /////////////////////////// -->
 
             <a class="btn btn-primary" href="">
-                <a class="btn btn-primary" href="book_details.php?bookID=0"><i class="fa fa-plus"></i> Add New Book</a>
+                <a class="btn btn-primary" href="book_details.php?todolistID=0"><i class="fa fa-plus"></i> Add New Book</a>
             <br>
             <table class="table table-striped table-hover table-bordered">
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Price</th>
-                    <th>Genre</th>
+                    <th>ID</th>
+                    <th>Todo</th>
+                    <th>Notes</th>
+
                     <th></th>
                     <th></th>
                 </tr>
-                    <?php foreach($books as $book) : ?>
-                        <tr>
-                            <td><?php echo $book['Title'] ?></td>
-                            <td><?php echo $book['Author'] ?></td>
-                            <td><?php echo $book['Price'] ?></td>
-                            <td><?php echo $book['Genre'] ?></td>
+                    <?php foreach($todolists as $todolist) : ?>
+
+                            <td><?php echo $todolist['Id'] ?></td>
+                            <td><?php echo $todolist['TODO'] ?></td>
+                            <td><?php echo $todolist['Notes'] ?></td>
+
 
                             <!-- //////////////////// -->
                             <!-- MODIFY SECTION BELOW -->
                             <!-- //////////////////// -->
 
-                            <td><a class="btn btn-primary" href="book_details.php?bookID=<?php echo $book['Id'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
 
-                            <td><a class="btn btn-danger" href="book_delete.php?bookID=<?php echo $book['Id'] ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
+
+
+                            <td><a class="btn btn-primary" href="book_details.php?todolistID=<?php echo $todolist['Id'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
+
+                            <td><a class="btn btn-danger" href="book_delete.php?todolistID=<?php echo $todolist['Id'] ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
                         </tr>
                     <?php endforeach; ?>
 

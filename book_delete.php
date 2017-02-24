@@ -1,10 +1,10 @@
 <?php
 include_once('database.php');
-$bookID = $_GET["bookID"]; // assigns the gameID from the URL
-if($bookID != false) {
-    $query = "DELETE FROM books WHERE Id = :book_id ";
+$todolistID = $_GET["todolistID"]; // assigns the gameID from the URL
+if($todolistID != false) {
+    $query = "DELETE FROM todolists WHERE Id = :todolist_id ";
     $statement = $db->prepare($query);
-    $statement->bindValue(":book_id", $bookID);
+    $statement->bindValue(":todolist_id", $todolistID);
     $success = $statement->execute(); // execute the prepared query
     $statement->closeCursor(); // close off database
 }

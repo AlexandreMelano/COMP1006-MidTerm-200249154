@@ -3,11 +3,16 @@
 /* ////////////////////// */
 /* DON'T TOUCH THIS FILE! */
 /* ////////////////////// */
+$dsn = 'mysql:host=localhost;dbname=todolistdb';
+$userName = "Teacher";
+$password = 123456;
+
+
 
 // cleardb access
-$dsn = 'mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=videogamesdb';
-$userName = 'b6ee96bd470785';
-$password = 'dc381279';
+//$dsn = 'mysql:host=ca-cdbr-azure-central-a.cloudapp.net;dbname=videogamesdb';
+//$userName = 'b6ee96bd470785';
+//$password = 'dc381279';
 
 // exception handling - use a try / catch
 try {
