@@ -1,10 +1,8 @@
 <?php
 include_once('database.php'); // include the database connection file
-
 /*//////////////////////*/
 /* YOUR CODE GOES HERE */
 /*/////////////////////*///
-
 $todolistID = $_GET["todolistID"]; // assigns the gameID from the URL
 echo $todolistID;
 if($todolistID == 0) {
@@ -37,34 +35,29 @@ if($todolistID == 0) {
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <h1>Book Details</h1>
+            <h1>Todo Details</h1>
             <form action="update_database.php" method="post">
-                <div class="form-group">
-                    <label for="IDTextField" hidden>ID</label>
-                    <input type="hidden" class="form-control" id="IDTextField" name="IDTextField"
-                           placeholder="Game ID" value="<?php echo $todolist['ID']; ?>">
-                </div>
                 <div class="form-group">
                     <label for="TitleTextField">Todo</label>
                     <input type="text" class="form-control" id="TitleTextField"  name="TitleTextField"
-                           placeholder="Title" required  value="<?php echo $todolist['TODO']; ?>">
+                           placeholder="Todo" required  value="">
                 </div>
                 <div class="form-group">
                     <label for="AuthorTextField">Notes</label>
                     <input type="text" class="form-control" id="AuthorTextField" name="AuthorTextField"
-                           placeholder="Author" required  value="<?php echo $todolist['Notes']; ?>">
+                           placeholder="Notes" required  value="">
                 </div>
-                <div class="form-group">
-                    <label for="PriceTextField">ID</label>
+                <!--<div class="form-group">
+                    <label for="PriceTextField">Price</label>
                     <input type="text" class="form-control" id="PriceTextField" name="PriceTextField"
                            placeholder="Price" required  value="<?php echo $todolist['Price']; ?>">
-                <!--</div>
+                </div>
                 <div class="form-group">
                     <label for="GenreTextField">Genre</label>
                     <input type="text" class="form-control" id="GenreTextField" name="GenreTextField"
                            placeholder="Genre" required  value="<?php echo $todolist['Genre']; ?>">-->
                 </div>
-                    <input type="hidden" name="isAddition" value="<?php echo $isAddition; ?>">
+                <input type="hidden" name="isAddition" value="<?php echo $isAddition; ?>">
                 <button type="submit" id="SubmitButton" class="btn btn-primary">Submit</button>
             </form>
 
@@ -79,4 +72,3 @@ if($todolistID == 0) {
 <script src="./Scripts/app.js"></script>
 </body>
 </html>
-

@@ -1,43 +1,22 @@
 <?php
 include_once('database.php');
-
 $isAddition = filter_input(INPUT_POST, "isAddition");
-$bookTitle = filter_input(INPUT_POST, "TitleTextField");
-$bookAuthor = filter_input(INPUT_POST, "AuthorTextField");
-$bookPrice = filter_input(INPUT_POST, "PriceTextField");
-$bookGenre = filter_input(INPUT_POST, "GenreTextField");
-
-// check if user is Adding a New Book
+$todolistTODO = filter_input(INPUT_POST, "NameTextField"); //$_POST["NameTextField"];
+$todolistNotes = filter_input(INPUT_POST, "CostTextField"); //$_POST["CostTextField"];
 if($isAddition == "1") {
-    /*
-     * This is the query that wont work
-     */
-
-    //$query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
-    $query = "INSERT INTO books (Title, Author, Price, Genre) VALUES (:book_title, :book_author, :book_price, :book_genre)";
-    $statement = $db->prepare($query);
-}else
-{
-/*
- *  Underneath is my update field, which works.
- */
-    $bookID = filter_input(INPUT_POST, "IDTextField"); // $_POST["IDTextField"];
-
-/*/$query = "";
-$statement = $db->prepare($query); // encapsulate the sql statement/*/
-    $query = "UPDATE books SET Title = :book_title, Author = :book_author, Price = :book_price, Genre = :book_genre WHERE Id = :book_id "; // SQL statement
+    $query = "INSERT INTO todolists (TODO, Notes) VALUES (:todolist_todo, :todolist_notes)";
     $statement = $db->prepare($query); // encapsulate the sql statement
-    $statement->bindValue(':book_id', $bookID);
-
 }
-
-$statement->bindValue(':book_title', $bookTitle);
-$statement->bindValue(':book_author', $bookAuthor);
-$statement->bindValue(':book_price', $bookPrice);
-$statement->bindValue(':book_genre', $bookGenre);
+else {
+    $todolistID = filter_input(INPUT_POST, "IDTextField"); // $_POST["IDTextField"];
+    $query = "UPDATE todolists SET TODO = :todolist_todo, Notes = :todolist_notes WHERE Id = :todolist_id "; // SQL statement
+    $statement = $db->prepare($query); // encapsulate the sql statement
+    $statement->bindValue(':todolist_id', $todolistID);
+}
+$statement->bindValue(':todolist_todo', $todolistTODO);
+$statement->bindValue(':todolist_notes', $todolistNotes);
 $statement->execute(); // run on the db server
 $statement->closeCursor(); // close the connection
-
 // redirect to index page
 header('Location: index.php');
 ?>

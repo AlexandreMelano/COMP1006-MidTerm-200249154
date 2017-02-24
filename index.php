@@ -13,7 +13,7 @@ $statement->closeCursor(); // close the connection
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Book List</title>
+    <title>Todo list</title>
     <!-- CSS Section -->
     <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Scripts/lib/bootstrap/dist/css/bootstrap-theme.min.css">
@@ -24,14 +24,14 @@ $statement->closeCursor(); // close the connection
 <div class="container">
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <h1>Books List</h1>
+            <h1>Todo list</h1>
 
             <!-- /////////////////////////// -->
             <!-- FIX THE ADD NEW BOOK BUTTON -->
             <!-- /////////////////////////// -->
 
             <a class="btn btn-primary" href="">
-                <a class="btn btn-primary" href="book_details.php?todolistID=0"><i class="fa fa-plus"></i> Add New Book</a>
+                <a class="btn btn-primary" href="book_details.php?todolistID=0"><i class="fa fa-plus"></i> Add New Todo</a>
             <br>
             <table class="table table-striped table-hover table-bordered">
                 <tr>
@@ -44,7 +44,7 @@ $statement->closeCursor(); // close the connection
                 </tr>
                     <?php foreach($todolists as $todolist) : ?>
 
-                            <td><?php echo $todolist['Id'] ?></td>
+                            <td><?php echo $todolist['ID'] ?></td>
                             <td><?php echo $todolist['TODO'] ?></td>
                             <td><?php echo $todolist['Notes'] ?></td>
 
@@ -56,9 +56,9 @@ $statement->closeCursor(); // close the connection
 
 
 
-                            <td><a class="btn btn-primary" href="book_details.php?todolistID=<?php echo $todolist['Id'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
+                            <td><a class="btn btn-primary" href="book_details.php?todolistID=<?php echo $todolist['ID'] ?>"><i class="fa fa-pencil-square-o"></i> Edit</a></td>
 
-                            <td><a class="btn btn-danger" href="book_delete.php?todolistID=<?php echo $todolist['Id'] ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
+                            <td><a class="btn btn-danger" href="book_delete.php?todolistID=<?php echo $todolist['ID'] ?>"><i class="fa fa-trash-o"></i> Delete</a></td>
                         </tr>
                     <?php endforeach; ?>
 
